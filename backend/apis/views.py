@@ -9,7 +9,11 @@ import datetime
 
 @api_view(['GET'])
 def get_apis_logs(request):
-    """Retornando todas as API's"""
+    """
+    A funcao esta retornando todas as Apis do Model APILogsModel
+
+    :return: serializer.data
+    """
     
     apis = APILogsModel.objects.all()
     serializer = APILogsModelSerializer(apis, many=True)
@@ -19,7 +23,11 @@ def get_apis_logs(request):
 
 @api_view(['POST'])
 def post_filter_date(request):
-    """Filtrando o retorno da API por Data"""
+    """
+    A funcao esta filtrando por datas o Model APILogsModel
+
+    :return: serializer.data
+    """
 
     json_request = json.dumps(request.data)
     json_request = json.loads(json_request)
@@ -49,7 +57,11 @@ def post_filter_date(request):
 
 @api_view(['POST'])
 def post_filter_contains_string(request):
-    """Filtrando o retorno da API pela a string Response"""
+    """
+    A funcao esta filtrando por string(Response) o Model APILogsModel
+    
+    :return: serializer.data
+    """
 
     json_request = json.dumps(request.data)
     json_request = json.loads(json_request)
