@@ -10,7 +10,7 @@ import datetime
 @api_view(['GET'])
 def get_apis_logs(request):
     """
-    A funcao esta retornando todos os logs captudado das API's
+    A funcao esta retornando todos os logs capturados das API's
 
     @param1: apis
     @param2: serializer
@@ -41,7 +41,7 @@ def post_filter_date(request):
     @param2: enddata
     :return: 200 a APILogsModel_REQUESTS objetos encontrados \
     com application/json mimetype.
-    @raise 500: se os paramentro vindo do frontend estiver errados
+    @raise 500: se os paramentro vindo do frontend estiverem errados
     """
 
     json_request = json.dumps(request.data)
@@ -74,7 +74,7 @@ def post_filter_date(request):
 @api_view(['POST'])
 def post_filter_contains(request):
     """
-    A funcao esta filtrando por datas o Model APILogsModel
+    A funcao esta filtrando pela a string(response) o Model APILogsModel
 
     @param1: json_request
     @param1: string_search
