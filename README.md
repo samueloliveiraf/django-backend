@@ -50,6 +50,7 @@ Config .env
     DB_HOST=localhost
     DB_PORT=5432
 
+    DEBUG=True
     SECRET_KEY=django-insecure-s+70mef4)m4*r0g(p1$9xz*ie#+dbed+d%*&1k*62m7g&3bk63
     
 -------------------------------------------------------------------
