@@ -36,7 +36,7 @@ Active venv
     
 Install Requirements
 
-    pip install -r requirements.txt
+    pip install -r requeriments.txt
 
 Config .env
 
