@@ -32,7 +32,7 @@ urlpatterns = [
         post_filter_date,
         name='list-logs-apis-date'
     ),
-    path('list-logs-api/contains/',
+    path('list-logs-apis/contains/',
         post_filter_contains,
         name='list-logs-api-contains'
     ),
