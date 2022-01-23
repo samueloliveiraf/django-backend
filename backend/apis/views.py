@@ -18,11 +18,18 @@ def get_apis_logs(request):
     com application/json mimetype.
     @raise 404: se os objetos nao foram encontrados
     """
-    
-    apis = APILogsModel.objects.all()
-    serializer = APILogsModelSerializer(apis, many=True)
+    try:
+        apis = APILogsModel.objects.all()
+        serializer = APILogsModelSerializer(apis, many=True)
+        
+        return Response(serializer.data)
 
-    return Response(serializer.data)
+    except:
+        return JsonResponse({
+            'error_code':404, 
+            'message':'Informe a data correta Ex: 2021-02-11'
+            }
+        )
 
 
 @api_view(['POST'])

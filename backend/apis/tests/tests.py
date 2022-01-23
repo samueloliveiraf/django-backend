@@ -6,6 +6,20 @@ from drf_api_logger.models import APILogsModel
 class ApisTestCase(APITestCase):
 
     def setUp(self):
+        """
+        A funcao esta criando um modelo APILogsModel
+
+        @param1: execution_time
+        @param2: api
+        @param3: client_ip_address
+        @param4: headers
+        @param5: headers
+        @param6: body
+        @param7: method
+        @param8: response
+        @param9: status_code
+        @param10: added_on
+        """
         APILogsModel.objects.create(
             execution_time='0.05517',
             api='http://localhost:8000/api/list-logs-apis/',
@@ -20,14 +34,24 @@ class ApisTestCase(APITestCase):
 
 
     def test_create_new_api_logs_model(self):
-        """Testando a criação do model APILogsModel"""
+        """
+        A funcao esta certificando de que esta sendo 
+        criado o modelo APILogsModel
+
+        @param1: api
+        """
         api = APILogsModel.objects.get(api='http://localhost:8000/api/list-logs-apis/')
         self.assertEqual(api.__str__(), 'http://localhost:8000/api/list-logs-apis/')
 
 
     def test_api_model_get(self):
-        """Testando o retono da Api"""
-        response = APILogsModel.objects.get()
+        """
+        A funcao esta certificando de que esta sendo 
+        retornando todos os modelo APILogsMode
+
+        @param1: response
+        """
+        response = APILogsModel.objects.all()
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
