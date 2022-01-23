@@ -10,9 +10,11 @@ import datetime
 @api_view(['GET'])
 def get_apis_logs(request):
     """
-    A funcao esta retornando todas as Apis do Model APILogsModel
+    A funcao esta retornando todos os logs captudado das API's
 
-    :return: serializer.data
+    @return: 200: a APILogsModel_REQUESTS objetos encontrados \
+    com application/json mimetype.
+    @raise 404: se os objetos nao foram encontrados
     """
     
     apis = APILogsModel.objects.all()
@@ -26,14 +28,18 @@ def post_filter_date(request):
     """
     A funcao esta filtrando por datas o Model APILogsModel
 
-    :return: serializer.data
+    @param1: startdata
+    @param2: enddata
+    :return: 200 a APILogsModel_REQUESTS objetos encontrados \
+    com application/json mimetype.
+    @raise 500: se os paramentro vindo do frontend estiver errados
     """
 
     json_request = json.dumps(request.data)
     json_request = json.loads(json_request)
 
-    startdata = json_request['startdata']
-    enddata = json_request['enddata']
+    startdata = json_request['start_data']
+    enddata = json_request['end_data']
 
     if startdata != None and enddata != None:
         apis = APILogsModel.objects.filter(
@@ -51,16 +57,20 @@ def post_filter_date(request):
 
         return JsonResponse({
             'error_code':500, 
-            'message':'Informe a data correta Ex: 2021-02-11'}
+            'message':'Informe a data correta Ex: 2021-02-11'
+            }
         )
 
 
 @api_view(['POST'])
-def post_filter_contains_string(request):
+def post_filter_contains(request):
     """
-    A funcao esta filtrando por string(Response) o Model APILogsModel
-    
-    :return: serializer.data
+    A funcao esta filtrando por datas o Model APILogsModel
+
+    @param: string_search
+    :return: 200 a APILogsModel_REQUESTS objetos encontrados \
+    com application/json mimetype.
+    @raise 500: se o paramentro vindo do frontend estiver errado
     """
 
     json_request = json.dumps(request.data)
@@ -78,5 +88,6 @@ def post_filter_contains_string(request):
 
         return JsonResponse({
             'error_code':500, 
-            'message':'Por favor informa a palavra a ser pesquisada'}
+            'message':'Por favor informa a palavra a ser pesquisada'
+            }
         )

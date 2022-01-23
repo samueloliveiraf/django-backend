@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     get_apis_logs,
     post_filter_date,
-    post_filter_contains_string
+    post_filter_contains
 )
 
 
@@ -16,7 +16,7 @@ urlpatterns = [
         name='list-logs-apis-date'
     ),
     path('list-logs-api/contains/',
-        post_filter_contains_string,
+        post_filter_contains,
         name='list-logs-api-contains'
     )
 ]

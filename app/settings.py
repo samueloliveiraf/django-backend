@@ -31,7 +31,8 @@ DEFAULT_APPS = [
 THIRD_APPS = [
     'rest_framework',
     'drf_api_logger',
-    'corsheaders'
+    'corsheaders',
+    'drf_yasg'
 ]
 
 PROJECT_APPS = [
