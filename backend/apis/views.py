@@ -12,6 +12,8 @@ def get_apis_logs(request):
     """
     A funcao esta retornando todos os logs captudado das API's
 
+    @param1: apis
+    @param2: serializer
     @return: 200: a APILogsModel_REQUESTS objetos encontrados \
     com application/json mimetype.
     @raise 404: se os objetos nao foram encontrados
@@ -67,7 +69,8 @@ def post_filter_contains(request):
     """
     A funcao esta filtrando por datas o Model APILogsModel
 
-    @param: string_search
+    @param1: json_request
+    @param1: string_search
     :return: 200 a APILogsModel_REQUESTS objetos encontrados \
     com application/json mimetype.
     @raise 500: se o paramentro vindo do frontend estiver errado
