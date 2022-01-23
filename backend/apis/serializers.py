@@ -5,4 +5,4 @@ from drf_api_logger.models import APILogsModel
 class APILogsModelSerializer(ModelSerializer):
     class Meta:
         model = APILogsModel
-        exclude = ['response']
+        fields = '__all__'

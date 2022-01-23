@@ -36,6 +36,7 @@ urlpatterns = [
         post_filter_contains,
         name='list-logs-api-contains'
     ),
+    
     # Interface Swagger
 
     path('swagger/', 
